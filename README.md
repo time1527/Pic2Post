@@ -87,3 +87,8 @@ GPUS=1 PER_DEVICE_BATCH_SIZE=1 sh shell/internvl2.5/2nd_finetune/internvl2_5_1b_
      <img src="./assets/after_w_cot.png" width="45%">
    </p>
 
+## Data Construction
+
+![](./assets/framework.svg)
+
+最后按照规定的数据集格式整合，例如gen_final函数生成的是符合internvl2.5微调格式的数据。

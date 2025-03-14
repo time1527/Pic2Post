@@ -351,8 +351,6 @@ def gen_cot(image_dir, api_key):
     with open("cot.json", "w", encoding="utf-8") as json_file:
         json_file.write("[\n")  # 开始写入 JSON 数组
         for i, item in enumerate(flux):
-            if item["id"] <= 95:
-                continue
             flux_prompts = []
             image_path = []
             for j, prompt in enumerate(item["flux"]["prompts"]):
@@ -477,8 +475,10 @@ def gen_llama_factory():
         new_item = {}
         type = 0
         # images
- 
-        new_item["images"] = [os.path.join(current_directory,t[2:]) for t in item["images"]]
+
+        new_item["images"] = [
+            os.path.join(current_directory, t[2:]) for t in item["images"]
+        ]
         type = len(new_item["images"])
 
         while flux_index < len(flux) and flux[flux_index]["id"] != item["id"]:
@@ -489,7 +489,7 @@ def gen_llama_factory():
         prm = random.choice(prompts).format(header="标题“" + item["header"] + "”")
         # https://github.com/OpenGVLab/InternVL/issues/658
         # https://github.com/OpenGVLab/InternVL/issues/654
-        prm = "<image>\n"*type + prm
+        prm = "<image>\n" * type + prm
 
         new_item["messages"] = [
             {
