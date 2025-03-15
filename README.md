@@ -65,11 +65,13 @@ GPUS=1 PER_DEVICE_BATCH_SIZE=1 sh shell/internvl2.5/2nd_finetune/internvl2_5_1b_
 
 **损失曲线**：
 
-[待使用笔记本电脑添加]
+<img src="assets/train_loss.svg" style="zoom:15%;" />
 
 **微调LoRA**：[qwerty317/xhs_internvl2_5_1B_lora](https://www.modelscope.cn/models/qwerty317/xhs_internvl2_5_1B_lora)
 
 >merge参照：https://internvl.readthedocs.io/en/latest/tutorials/coco_caption_finetune.html#merging-lora-weights
+>
+>也可以直接加载lora，类似test.ipynb，实际使用的代码是一样的，只是没有merged model导出
 
 **微调对话比较**：test.ipynb
 
